@@ -1,3 +1,5 @@
+## 04. Two Events Deliverable
+
 | 1. Contigency table | Colas       | Not Colas   |
 | -----------------   | ---------   | ----------- |
 | **Regular**         | $1,(0.10)$  | $5,(0.50)$  |
