@@ -1,4 +1,4 @@
-## Birthday Problem
+## 03. Birthday Problem
 
 2. `set.seed` basically allows for the coder to make a random generation to be reproducible. You are essentially setting a random "roll" of sorts.
 3. `R` represents repetitions.
