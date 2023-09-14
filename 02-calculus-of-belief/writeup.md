@@ -1,4 +1,4 @@
-## Calculus of Belief
+## 02. Calculus of Belief
 
 **2. what does $K$ represent?**
 
