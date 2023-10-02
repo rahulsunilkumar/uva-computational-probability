@@ -14,4 +14,4 @@ The idea that the author was trying to convey is the subjectivity of probability
 
 3. Please write a short summary of what it means to organize beliefs.
 
-You should not only organize your beliefs but how those beliefs affect your course of action— what will you do based on what you believe. What is means to organize beliefs is to decide whether XYZ should be done, or not.
+_REVISION:_ The author contends that probability is not about what your beliefs are but how you organize those beliefs relative to one another. The example used is that while in geometry it does not matter what angles exist in a plane triangle, the fact that they add up to 100 degrees does matter, and it is similar in probability. The idea here is that no matter the beliefs, organizing them is what probability is about and combining and observing their changes is what this book is about.
