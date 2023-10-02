@@ -5,4 +5,7 @@
 REVISION: The $P( \text{Reg.} | \text{Cola}) \ne P( \text{Reg.} | \text{Not Cola})$. That is $0.25$ versus $0.83$ respectively which shows the dependency between both. The same probabilities are used to answer question 2.
 
 2. It is negatively associated. If you prefer Cola you are less likely to prefer regular sugar.
+
+REVISION: The $P( \text{Reg.} | \text{Cola}) = 0.25$ while the $P(\text{Reg.}) = 0.6$ which show that if you prefer Cola you are less likely to prefer sugar.
+
 3. There seems to be an association between more toxic treatment and fewer migraines, however, similar to tht story in CH4.7, you cannot follow that more toxic treament will reduce your migraines. 
