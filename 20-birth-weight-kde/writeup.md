@@ -24,3 +24,8 @@ My reasoning was based off balancing how much can I maximize smoothness versus h
 ![image](https://github.com/rahulsunilkumar/ds2006-sunilkumar-rahul/assets/143004275/790a111f-97e1-4bd1-99ae-96863b425f64)
 
 $P(\text{age} \leq 25) = 0.857$
+
+### Comparisons
+- Both methods can be used to estimate density.
+- Both approaches involve combiniing simpler distributions to model more complex data distributions. For kernel smoothing, the function is centered each data point. In mixture models, the different distributions are combined.
+- Both can are, in a way, the sum of functions.
