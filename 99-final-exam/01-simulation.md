@@ -39,28 +39,19 @@ The probability that both strategies yield "goat" is: 0.387
 ### B. A Study of Precision, through Error!
 To determine either absolute error or relative error, we need to know $p$, the true probability of getting a `"goat"` under both strategies.
 
-For stategy: STAY—
-- $P(G)$, or the probability of picking GOAT first, is $0.75$.
-- $P(G \| \text{STAY})$, or the probability of getting GOAT after picking GOAT first and choosing to STAY, is clealry $1$.
+Because we're only looking for BOTH strategies to yield `"goat"`, we are only interested in the probabilities AFTER the first choice was made as `"goat"`. Anything else and the first strategy will automatically yield `"car"`.
 
-This means the probability of getting GOAT in the STAY strategy is $0.75$
+1. _Always stay with the first door selected_: When you incorporate this strategy you initially pick goat and do not move and the probability that you chose a goat is $3/4$.
+2. _Always switch to the unopened door_: When you incorporate this strategy you initially pick goat and always move and the probability that you chose a goat is $1/2$.
 
-For strategy: SWITCH—
-- $P(G)$, or the probability of picking GOAT first, is also $0.75$.
-- $P(G \| \text{SWITCH})$, or the probability of getting GOAT after picking GOAT first and choosing to SWITCH, is $0.50$.
-- $P(C)$, or the probability of picking CAR first, is $0.25$.
-- $P(C \| \text{SWITCH}$, or the probability of getting CAR after picking CAR first and choosing to SWITCH is $0$.
+So the probability for `"goat", "goat"` is $\frac{3}4 \times \frac{1}2 = \frac{3}8 = 0.375$
 
-This means the probability of getting GOAT in the SWITCH strategy is $(0.75 \times 0.50) + (0.25 \times 1.00)$. Or in other words $P(\text{initally CAR then GOAT})) + P(\text{initially GOAT then GOAT})$. This is $\frac{5}8 = 0.625$
-
-So finally, the true probability of both strategies simultaneously yielding "goat" is $0.75 \times 0.625 = 0.46875$.
-
-I ran my simulation through 50,000 replicates and got $0.3852$. From that we see that there is an absolute error of $$\|\hat{p}-p\| = 0.084$$
+I ran my simulation through 50,000 replicates and got $0.3852$. From that we see that there is an absolute error of $$\|\hat{p}-p\| = 0.001$$
 
 And there is a relative error of
-$$\frac{\|\hat{p}-p\|}{p} = 0.178$$
+$$\frac{\|\hat{p}-p\|}{p} = 0.03$$
 
-This does seem like a high level of error, so either my simulation could be better or my math is flawed.
+This follows logically, and shows that our simulation has good precision.
 
 ### C. Contingency Table: Sim v. Math
 | Strat 1/Strat 2 $(N = n)$ | Car | Goat |
@@ -79,35 +70,38 @@ goat_goat_count <- 0
 goat_car_count <- 0
 car_goat_count <- 0
 car_car_count <- 0
+sim_count = 10000
 
-for (k in 1:1000) {
+for (k in 1:sim_count) {
   result <- game(doors)
-  print(result)
-  if(result[1] == "goat" && result[2] == "goat") {
-    goat_goat_count <- goat_goat_count + 1
+  if(result[1] == "goat") {
+    if(result[2] == "goat") {
+      goat_goat_count <- goat_goat_count + 1
+    }
+    else {
+      goat_car_count <- goat_car_count + 1
+    }
   }
-  else if(result[1] == "goat" && result[2] == "car") {
-    goat_car_count <- goat_car_count + 1
-  }
-  else if(result[1] == "car" && result[2] == "goat") {
-    car_goat_count <- car_goat_count + 1
-  }
-  else if(result[1] == "car" && result[2] == "car") {
-    car_car_count <- car_car_count + 1
+  else {
+    if(result[2] == "goat") {
+      car_goat_count <- car_goat_count + 1
+    }
+    else {
+      car_car_count <- car_car_count + 1
+    }
   }
 }
-
-cat(goat_goat_count/1000, goat_car_count/1000, car_goat_count/1000, car_car_count/1000)
+cat(car_car_count, car_goat_count, goat_car_count, goat_goat_count)
+cat(car_car_count/sim_count, car_goat_count/sim_count, goat_car_count/sim_count, goat_goat_count/sim_count)
 ```
 
 This produced the following contingency table:
 | Strat 1/Strat 2 (Sim) | Car | Goat |
 | - | - | - |
-| Car | 0 | $0.411$ |
-| Goar | $0.345$| $0.240$|
+| Car | 0 | $0.2591$ |
+| Goar | $0.3751$| $0.3658$|
 
-Honestly, they do not match that great. But the math checks out and so does the code.
-
+This is a great fit! The simulation matches the classmate's proposed solution relatively well, in fact each cell has a relative error less than $0.05$ $(0, 0.04, 0.0003, 0.02)$. 
 
 
 
