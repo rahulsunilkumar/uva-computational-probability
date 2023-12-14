@@ -32,6 +32,7 @@ plot(ecdf(rhc_with_cap(1000)), main = "CDF of Hospital Charges with $1,500 Cap",
 
 ```
 And here's what it looks like:
+
 ![image](https://github.com/rahulsunilkumar/ds2006-sunilkumar-rahul/assets/143004275/b33cdd53-36ef-4c9b-9efb-572f5ecdc73c)
 
 ### C. Median, Under New Policy? 
